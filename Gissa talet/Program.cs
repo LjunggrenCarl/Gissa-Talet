@@ -58,21 +58,26 @@ namespace Gissa_talet
                         int min = 0;
                         int max;
 
+                        //låt användaren skriva in själv vad den vill gissa mellan
                         Console.WriteLine();
                         Console.WriteLine("Skriv in det högsta talet du vill gissa");
                         max = int.Parse(Console.ReadLine());
                         Console.WriteLine();
 
-                        Talet += r.Next(min, max);
+                        // + 1 eftersom annars tar de inte med det talet spelaren skrev alltså 1000 blir 999 + 1
+                        Talet += r.Next(min, max + 1);
 
+                        //så det blir lite roleplay för fun
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Talet skapas");
                         Console.WriteLine();
                         Thread.Sleep(2000);
                         Console.WriteLine("Talet är klart du kan börja gissa");
+                        Thread.Sleep(1000);
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
 
+                        //så man vett vad man skrev in
                         Console.WriteLine($"Talet är mellan 1 och {max}");
 
                         while (valid == false)
@@ -111,12 +116,14 @@ namespace Gissa_talet
                             }
                         }
 
+                        //vinn meddelande
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Du gissade rätt tal och vann, Bra jobbat");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine();
                         Thread.Sleep(1000);
 
+                        //senaste vinnaren
                         Console.WriteLine("Skriv in ditt namn för att vissa att du van senast");
                         Senastevinnaren = Console.ReadLine();
 
@@ -134,15 +141,19 @@ namespace Gissa_talet
 
                     // case 3: Visa spelets regler
                     case "3":
-                        Console.WriteLine("Spelet går ut på att du ska försöka att gissa ett tal mellan 1-10"); 
-                        Console.WriteLine("medans du får hjälp utav datorn om talet är för högt eller för lågt");
-                        Console.WriteLine("från vad du gissade senast.");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine("Spelet går ut på att du ska försöka att gissa ett tal mellan 1 "); 
+                        Console.WriteLine("och något du väljer medans du får hjälp utav datorn om talet är ");
+                        Console.WriteLine("för högt eller för lågt från vad du gissade senast.");
                         Thread.Sleep(7500);
+                        Console.WriteLine();
                         Console.WriteLine("När du har gissat rätt tal så vinner du spelet, ganska enkelt va");
                         Thread.Sleep(2500);
-                        Console.WriteLine("Kör programmet igen och testa :)");
+                        Console.WriteLine();
+                        Console.WriteLine("Kör programmet och testa :)");
                         Thread.Sleep(500);
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
 
                     // case 4: Programmet avslutas (bara break)
